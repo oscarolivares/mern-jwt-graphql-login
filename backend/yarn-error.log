@@ -1,0 +1,45 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\OSCAR\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add express express-graphql graphql grapql-tools mongoose cors
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\OSCAR\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\PuTTY;C:\Users\OSCAR\AppData\Local\Programs\Python\Python37\Scripts;C:\Users\OSCAR\AppData\Local\Programs\Python\Python37;C:\Users\OSCAR\AppData\Roaming\npm;C:\Users\OSCAR\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\MariaDB 10.4\bin;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\Git\usr\bin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/grapql-tools: Not found
+      at Request.params.callback [as _callback] (C:\Users\OSCAR\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66830:18)
+      at Request.self.callback (C:\Users\OSCAR\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140464:22)
+      at Request.emit (events.js:198:13)
+      at Request.<anonymous> (C:\Users\OSCAR\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141436:10)
+      at Request.emit (events.js:198:13)
+      at IncomingMessage.<anonymous> (C:\Users\OSCAR\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:141358:12)
+      at Object.onceWrapper (events.js:286:20)
+      at IncomingMessage.emit (events.js:203:15)
+      at endReadableNT (_stream_readable.js:1129:12)
+      at process._tickCallback (internal/process/next_tick.js:63:19)
+
+npm manifest: 
+  {
+    "name": "backend",
+    "version": "1.0.0",
+    "description": "backend for login system",
+    "main": "index.js",
+    "repository": "https://github.com/oscarolivares/mern-login",
+    "author": "OSCAR OLIVARES",
+    "license": "MIT",
+    "private": true
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
