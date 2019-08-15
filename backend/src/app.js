@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 
 import graphqlHTTP from 'express-graphql';
-import schema from './graphql/v1.0/shema';
+import schema from './graphql/v1.0/schema';
 
 const app = express();
 

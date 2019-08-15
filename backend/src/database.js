@@ -4,7 +4,8 @@ async function connect() {
   try {
     await mongoose.connect('mongodb://localhost/mongodbgraphql', {
       useNewUrlParser: true,
-      useFindAndModify: false
+      useFindAndModify: false,
+      useCreateIndex: true
     });
     console.log('Database is connected');
   } catch (error) {
