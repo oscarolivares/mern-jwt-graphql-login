@@ -18,8 +18,8 @@ const userSchema = new Schema({
     enum: ['admin', 'user', 'guest'],
     default: 'user'
   },
-  firstname: String,
-  lastname: String
+  firstName: String,
+  lastName: String
 });
 
 export default model('User', userSchema);
