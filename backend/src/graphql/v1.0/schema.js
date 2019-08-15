@@ -4,8 +4,9 @@ import { resolvers } from './resolvers';
 const typeDefs = `
   type Query {
     Users: [User]
-    User(_id: String): User
-    UserByEmail(email: String): User
+    User(_id: String!): User
+    UserByEmail(email: String!): User
+    Login(email: String!, password: String!): String
   }
 
   type User {
