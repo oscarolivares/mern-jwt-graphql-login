@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const userSchema = new Schema({
   email: {
@@ -20,6 +21,27 @@ const userSchema = new Schema({
   },
   firstName: String,
   lastName: String
+});
+
+userSchema.pre('save', function(next) {
+  const user = this;
+
+  if(!user.isModified('password')) {
+    return next();
+  }
+
+  bcrypt.genSalt(10, (err, salt) => {
+    if(err) {
+      next(err);
+    }
+    bcrypt.hash(user.password, salt, (err, hash) => {
+      if(err) {
+        next(err)
+      }
+      user.password = hash;
+      next();
+    })
+  })
 });
 
 export default model('User', userSchema);
