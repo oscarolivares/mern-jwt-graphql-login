@@ -31,7 +31,7 @@
 
     mutation createUser{
       createUser(input: {
-        email: "test@mail.com"
+        email: "test@mail.com",
         password: "Test123.."
       }) {
         _id,

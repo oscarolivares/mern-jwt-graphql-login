@@ -2,10 +2,8 @@ import path from 'path';
 import express from 'express';
 import cors from 'cors';
 
-import Routes from './routes';
-
-import graphqlHTTP from 'express-graphql';
-import schema from './graphql/v1.0/schema';
+import userRoutes from './routes/user.routes';
+import graphqlRoutes from './routes/graphql.routes';
 
 const app = express();
 
@@ -18,23 +16,12 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
-/* app.get('/', (req, res) => {
-  res.redirect('/graphql/v1.0/users');
-}); */
+app.get('/', (req, res) => {
+  res.send('HomePage');
+});
 
-app.use(Routes);
-
-// API Graphql
-app.use(
-  '/graphql/v1.0/users',
-  graphqlHTTP({
-    graphiql: true,
-    schema: schema,
-    context: {
-      message: 'Test context'
-    }
-  })
-);
+app.use('/users', userRoutes);
+app.use('/graphql', graphqlRoutes);
 
 // Middlewares for errors
 app.use(function(req, res, next) {

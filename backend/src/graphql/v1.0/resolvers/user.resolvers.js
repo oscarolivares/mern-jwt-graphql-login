@@ -1,22 +1,5 @@
-import User from '../../models/User';
-import bcrypt from 'bcrypt';
-
-function testPasswordStrength(password) {
-  const strongRegex = new RegExp(
-    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*.,])(?=.{8,})'
-  );
-  const mediumRegex = new RegExp(
-    '^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})'
-  );
-
-  if (strongRegex.test(password)) {
-    return 'high';
-  } else if (mediumRegex.test(password)) {
-    return 'med';
-  } else {
-    return 'low';
-  }
-}
+import User from '../../../models/User';
+import testPasswordStrength from '../../../helpers/testPasswordStrength';
 
 export const resolvers = {
   Query: {
@@ -36,15 +19,14 @@ export const resolvers = {
     async createUser(_, { input }) {
       if (testPasswordStrength(input.password) === 'high') {
         const newUser = new User(input);
-        await newUser.save(err => {
-          if (err) {
-            return null;
-          }
-        });
-        return newUser;
-      } else {
-        return null;
+        try {
+          await newUser.save();
+          return newUser;
+        } catch (err) {
+          return null;
+        }
       }
+      return null;
     },
 
     async updateUser(_, { _id, input }) {
