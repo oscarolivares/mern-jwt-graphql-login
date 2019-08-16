@@ -48,7 +48,11 @@ export const resolvers = {
     async createUser(_, { input }) {
       if (testPasswordStrength(input.password) === 'high') {
         const newUser = new User(input);
-        await newUser.save();
+        await newUser.save(err => {
+          if (err) {
+            return null;
+          }
+        });
         return newUser;
       } else {
         return null;
