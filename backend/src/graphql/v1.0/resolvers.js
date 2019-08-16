@@ -30,18 +30,6 @@ export const resolvers = {
 
     async UserByEmail(_, { email }) {
       return await User.findOne({ email });
-    },
-
-    async Login(_, { email, password }) {
-      const user = await User.findOne({ email });
-      if (user) {
-        const passMatch = await bcrypt.compare(password, user.password);
-        if (passMatch) {
-          return 'success';
-        }
-        return 'Password did not match';
-      }
-      return 'User does not exist';
     }
   },
   Mutation: {

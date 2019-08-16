@@ -2,6 +2,8 @@ import path from 'path';
 import express from 'express';
 import cors from 'cors';
 
+import Routes from './routes';
+
 import graphqlHTTP from 'express-graphql';
 import schema from './graphql/v1.0/schema';
 
@@ -16,9 +18,11 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   res.redirect('/graphql/v1.0/users');
-});
+}); */
+
+app.use(Routes);
 
 // API Graphql
 app.use(

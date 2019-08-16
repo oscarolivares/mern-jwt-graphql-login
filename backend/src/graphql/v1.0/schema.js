@@ -6,7 +6,6 @@ const typeDefs = `
     Users: [User]
     User(_id: String!): User
     UserByEmail(email: String!): User
-    Login(email: String!, password: String!): String
   }
 
   type User {

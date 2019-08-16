@@ -60,7 +60,3 @@
         role,
       }
     }
-
-    query login{
-      Login(email: "test@mail.com", password: "Test123..")
-    }
