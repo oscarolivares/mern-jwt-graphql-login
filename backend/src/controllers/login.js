@@ -21,17 +21,23 @@ export default async (req, res) => {
             expiresIn: 60 * 60
           });
           /* res.header('x-access-token', token); */
-          res.json({ success: true, token });
+          res.status(200).json({ success: true, token });
         } else {
-          res.json({ success: false, message: 'Password did not match' });
+          res
+            .status(401)
+            .json({ success: false, message: 'Password did not match' });
         }
       } else {
-        res.json({ success: false, message: 'User does not exist' });
+        res
+          .status(401)
+          .json({ success: false, message: 'User does not exist' });
       }
     } catch (err) {
-      res.json({ success: false, message: 'Internal error' });
+      res.status(500).json({ success: false, message: 'Internal error' });
     }
   } else {
-    res.json({ success: false, message: 'Required data was not provided' });
+    res
+      .status(400)
+      .json({ success: false, message: 'Required data was not provided' });
   }
 };
