@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
+import config from './config';
 
 async function connect() {
   try {
-    await mongoose.connect('mongodb://localhost/mongodbgraphql', {
+    await mongoose.connect(config.DB_URI, {
       useNewUrlParser: true,
       useFindAndModify: false,
       useCreateIndex: true

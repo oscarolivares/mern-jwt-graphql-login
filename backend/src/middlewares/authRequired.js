@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
+import config from '../config';
 
 // Authentication required middleware
 export default (req, res, next) => {
@@ -7,7 +7,7 @@ export default (req, res, next) => {
     req.body.token || req.query.token || req.headers['x-access-token'];
 
   if (token) {
-    jwt.verify(token, 'SECRET', (err, decoded) => {
+    jwt.verify(token, config.SECRET, (err, decoded) => {
       if (err) {
         return res.json({ success: false, message: 'Authentication fail' });
       } else {
