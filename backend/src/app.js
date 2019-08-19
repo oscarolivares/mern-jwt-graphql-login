@@ -5,6 +5,7 @@ import config from './config';
 
 import userRoutes from './routes/user.routes';
 import graphqlRoutes from './routes/graphql.routes';
+import frontendRoutes from './routes/frontend.routes';
 
 const app = express();
 
@@ -18,13 +19,12 @@ if (config.CORS) {
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
-// Routes
-app.get('/', (req, res) => {
-  res.send('HomePage');
-});
-
+// Internal routes
 app.use('/users', userRoutes);
 app.use('/graphql', graphqlRoutes);
+
+// Client side routes
+app.use('/', frontendRoutes);
 
 // Middlewares for errors
 app.use(function(req, res, next) {

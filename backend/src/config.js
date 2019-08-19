@@ -7,7 +7,7 @@ const config = {
   DB_URI: process.env.DB_URI || 'mongodb://localhost/mongodbgraphql',
   SECRET: process.env.SECRET || 'SECRET',
   CORS: true,
-  CORS_ORIGIN: 'http://192.168.0.114:4000'
+  CORS_ORIGIN: 'http://192.168.0.120:4000'
 };
 
 export default config;
