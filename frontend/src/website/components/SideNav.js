@@ -36,7 +36,7 @@ export default function SideNav(props) {
             </ListItem>
             <Divider />
 
-            <ListItem button onClick={() => props.SESSION.setToken('')}>
+            <ListItem button onClick={() => props.SESSION.setToken('', 0)}>
               <ListItemIcon children={<ExitToApp />} />
               <ListItemText primary="Sign Out" />
             </ListItem>
