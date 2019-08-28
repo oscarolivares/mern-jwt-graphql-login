@@ -1,4 +1,4 @@
-# mern-graphql-login
+# mern-jwt-graphql-login
 
 Registro y login con JWT, MERN, GraphQl y material-ui.
 
