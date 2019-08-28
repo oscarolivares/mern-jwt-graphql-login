@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import config from './config';
 
-import userRoutes from './routes/user.routes';
+import authRoutes from './routes/auth.routes';
 import graphqlRoutes from './routes/graphql.routes';
 import frontendRoutes from './routes/frontend.routes';
 
@@ -20,8 +20,8 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Internal routes
-app.use('/users', userRoutes);
-app.use('/graphql', graphqlRoutes);
+app.use('/auth', authRoutes);
+app.use('/api', graphqlRoutes);
 
 // Client side routes
 app.use('/', frontendRoutes);

@@ -58,7 +58,7 @@ export default function NavBar(props) {
       return (
         <>
           <Hidden smDown>
-            <Button color="inherit" onClick={() => SESSION.setToken('')}>
+            <Button color="inherit" onClick={() => SESSION.setToken('', -100)}>
               Sign Out
             </Button>
           </Hidden>
